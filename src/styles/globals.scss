@@ -1,0 +1,41 @@
+@use 'theme';
+
+* {
+  box-sizing: border-box;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: theme.$color-500;
+  color: theme.$color-100;
+  font-size: 1.6rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  height: auto;
+}
+
+dialog,
+button {
+  background: none;
+  border: none;
+}
+
+dialog {
+  margin: auto;
+
+  &::backdrop {
+    backdrop-filter: blur(2px);
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
