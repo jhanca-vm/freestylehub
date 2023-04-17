@@ -1,3 +1,4 @@
+import Layout from '@/components/Layout'
 import Head from 'next/head'
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
       <Head>
         <title>FreestyleHub</title>
       </Head>
+      <Layout></Layout>
     </>
   )
 }

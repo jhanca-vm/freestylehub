@@ -1,0 +1,30 @@
+@use 'theme';
+
+.container {
+  @media (max-width: 1023px) {
+    padding: 3.2rem;
+    width: 24rem;
+  }
+
+  ul {
+    display: grid;
+    list-style: none;
+    row-gap: 2.4rem;
+
+    @media (min-width: 1024px) {
+      column-gap: 4.8rem;
+      grid-auto-flow: column;
+    }
+  }
+
+  a {
+    color: theme.$color-200;
+    font-size: 1.8rem;
+    font-weight: 500;
+    transition: color ease-out 200ms;
+
+    &:hover {
+      color: theme.$color-100;
+    }
+  }
+}

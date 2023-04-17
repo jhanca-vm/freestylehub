@@ -1,0 +1,12 @@
+@use 'theme';
+
+.container {
+  backdrop-filter: blur(1px);
+  background: linear-gradient(
+    rgba(theme.$color-400, 0.4),
+    rgba(theme.$color-500, 0.8)
+  );
+  border: 1px solid theme.$color-500;
+  border-radius: 1.2rem;
+  box-shadow: theme.$shadow;
+}

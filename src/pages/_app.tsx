@@ -1,13 +1,6 @@
-import { Work_Sans } from 'next/font/google'
 import '@/styles/globals.scss'
-import type { AppProps } from 'next/app'
+import type { AppType } from 'next/app'
 
-const workSans = Work_Sans({ subsets: ['latin'] })
+const App: AppType = ({ Component, pageProps }) => <Component {...pageProps} />
 
-export default function App({ Component, pageProps }: AppProps) {
-  return (
-    <div className={workSans.className}>
-      <Component {...pageProps} />
-    </div>
-  )
-}
+export default App
