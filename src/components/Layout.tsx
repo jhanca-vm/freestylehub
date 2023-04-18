@@ -7,7 +7,7 @@ import Modal from './Modal'
 import styles from '@/styles/Layout.module.scss'
 import type { PropsWithChildren } from 'react'
 
-const workSans = Work_Sans({ subsets: ['latin'] })
+const workSans = Work_Sans({ style: ['normal', 'italic'], subsets: ['latin'] })
 
 export default function Layout({ children }: PropsWithChildren) {
   const modalRef = useRef<HTMLDialogElement>(null)
@@ -28,7 +28,7 @@ export default function Layout({ children }: PropsWithChildren) {
           <Nav />
         </Modal>
       </header>
-      <main>{children}</main>
+      <main className={styles.main}>{children}</main>
       <footer className={styles.footer}>
         <p>
           © 2023{' '}

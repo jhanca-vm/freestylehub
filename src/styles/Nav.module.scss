@@ -1,8 +1,8 @@
-@use 'theme';
+@use 'theme.module';
 
 .container {
   @media (max-width: 1023px) {
-    padding: 3.2rem;
+    padding: 2.4rem 2.8rem;
     width: 24rem;
   }
 
@@ -18,13 +18,16 @@
   }
 
   a {
-    color: theme.$color-200;
     font-size: 1.8rem;
     font-weight: 500;
     transition: color ease-out 200ms;
 
-    &:hover {
-      color: theme.$color-100;
+    @media (min-width: 1024px) {
+      color: theme.$color-200;
+
+      &:hover {
+        color: theme.$color-100;
+      }
     }
   }
 }

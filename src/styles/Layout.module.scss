@@ -1,4 +1,4 @@
-@use 'theme';
+@use 'theme.module';
 @use 'mixins';
 
 .container {
@@ -30,7 +30,7 @@
   }
 
   button {
-    @include mixins.size(3.6rem);
+    @include mixins.size(3.4rem);
 
     @media (min-width: 1024px) {
       display: none;
@@ -59,11 +59,24 @@
   }
 }
 
+.main {
+  flex-grow: 1;
+  padding-block: 4.8rem;
+
+  @media (min-width: 768px) {
+    padding-block: 6.4rem;
+  }
+
+  @media (min-width: 1024px) {
+    padding-block: 8rem;
+  }
+}
+
 .footer {
   color: theme.$color-200;
   font-size: 1.4rem;
   line-height: 1.25;
-  padding-block: 2.8rem;
+  padding-block: 2rem;
   text-align: center;
 
   @media (min-width: 768px) {
