@@ -1,4 +1,4 @@
-@use 'theme.module';
+@use 'theme';
 
 @mixin size($value) {
   height: $value;
@@ -6,7 +6,9 @@
 }
 
 @mixin text-gradient {
-  background: linear-gradient(theme.$color-100, theme.$color-300);
+  background: linear-gradient(45deg, theme.$color-100, theme.$color-300);
   background-clip: text;
   color: transparent;
+  text-shadow: 0 4px 4px rgb(0 0 0 /0.2);
+  width: fit-content;
 }

@@ -1,5 +1,5 @@
-@use 'theme.module';
-@use 'mixins';
+@use '../theme';
+@use '../mixins';
 
 .container {
   display: flex;
@@ -76,7 +76,7 @@
   color: theme.$color-200;
   font-size: 1.4rem;
   line-height: 1.25;
-  padding-block: 2rem;
+  padding-block: 2.4rem;
   text-align: center;
 
   @media (min-width: 768px) {

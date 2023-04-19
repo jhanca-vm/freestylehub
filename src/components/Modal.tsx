@@ -1,5 +1,5 @@
 import { forwardRef } from 'react'
-import styles from '@/styles/Modal.module.scss'
+import styles from '@/styles/modules/Modal.module.scss'
 import type { MouseEvent, PropsWithChildren } from 'react'
 
 const Modal = forwardRef<HTMLDialogElement, PropsWithChildren>(function Modal(

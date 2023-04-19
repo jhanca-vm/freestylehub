@@ -1,4 +1,4 @@
-@use 'theme.module';
+@use '../theme';
 
 .container {
   @media (max-width: 1023px) {
@@ -8,7 +8,6 @@
 
   ul {
     display: grid;
-    list-style: none;
     row-gap: 2.4rem;
 
     @media (min-width: 1024px) {

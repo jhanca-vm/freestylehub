@@ -1,21 +1,12 @@
 import Link from 'next/link'
-import styles from '@/styles/Nav.module.scss'
+import leagues from '@/lib/utils/leagues'
+import styles from '@/styles/modules/Nav.module.scss'
 
 export default function Nav() {
-  const leagues: Array<[string, string]> = [
-    ['spain', 'España'],
-    ['caribbean', 'Caribe'],
-    ['peru', 'Perú'],
-    ['colombia', 'Colombia'],
-    ['mexico', 'México'],
-    ['chile', 'Chile'],
-    ['argentina', 'Argentina']
-  ]
-
   return (
     <nav className={styles.container}>
       <ul>
-        {leagues.map(([id, label]) => (
+        {Array.from(leagues).map(([label, id]) => (
           <li key={id}>
             <Link href={`/fms/${id}`}>{label}</Link>
           </li>

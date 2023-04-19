@@ -1,5 +1,5 @@
-@use 'theme.module';
-@use 'mixins';
+@use '../theme';
+@use '../mixins';
 
 .container {
   h2 {
@@ -43,6 +43,7 @@
     aspect-ratio: 2 / 1;
     background-blend-mode: multiply;
     border-radius: 1.6rem;
+    box-shadow: theme.$shadow;
     display: flex;
     font-size: 1.5rem;
     font-style: italic;

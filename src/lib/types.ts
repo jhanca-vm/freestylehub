@@ -6,3 +6,10 @@ export interface Matchday {
   date: string
   image: string
 }
+
+export interface Transfer {
+  id: number
+  from: string | null
+  freestyler: string
+  to: string
+}

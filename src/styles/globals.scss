@@ -1,4 +1,4 @@
-@use 'theme.module';
+@use 'theme';
 
 * {
   box-sizing: border-box;
@@ -15,6 +15,10 @@ body {
   background-color: theme.$color-500;
   color: theme.$color-100;
   font-size: 1.6rem;
+}
+
+ul {
+  list-style: none;
 }
 
 a {

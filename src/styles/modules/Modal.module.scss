@@ -1,7 +1,7 @@
-@use 'theme.module';
+@use '../theme';
 
 .container {
   background: linear-gradient(theme.$color-400, theme.$color-500);
   border-radius: 1.2rem;
-  box-shadow: theme.$shadow-md;
+  box-shadow: 0 25px 50px -12px black;
 }

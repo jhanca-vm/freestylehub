@@ -1,0 +1,18 @@
+@use '../theme';
+
+@function getBackground($color) {
+  $rgba: rgba($color, 0.8);
+
+  @return linear-gradient($rgba, $rgba);
+}
+
+:export {
+  bg-gradient: linear-gradient(transparent, rgba(theme.$color-500, 0.8));
+  bg-esp: getBackground(theme.$color-esp);
+  bg-car: getBackground(theme.$color-car);
+  bg-per: getBackground(theme.$color-per);
+  bg-col: getBackground(theme.$color-col);
+  bg-mex: getBackground(theme.$color-mex);
+  bg-chl: getBackground(theme.$color-chl);
+  bg-arg: getBackground(theme.$color-arg);
+}

@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Nav from './Nav'
 import Modal from './Modal'
-import styles from '@/styles/Layout.module.scss'
+import styles from '@/styles/modules/Layout.module.scss'
 import type { PropsWithChildren } from 'react'
 
 const workSans = Work_Sans({ style: ['normal', 'italic'], subsets: ['latin'] })

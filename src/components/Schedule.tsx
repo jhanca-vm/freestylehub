@@ -1,7 +1,7 @@
-import theme from '@/styles/_theme.module.scss'
-import styles from '@/styles/Schedule.module.scss'
-import type { Matchday } from '@/lib/types'
 import formatDate from '@/lib/utils/formatDate'
+import backgrounds from '@/styles/modules/backgrounds.module.scss'
+import styles from '@/styles/modules/Schedule.module.scss'
+import type { Matchday } from '@/lib/types'
 
 interface Props {
   matchdays: Matchday[]
@@ -25,8 +25,9 @@ export default function Schedule({ matchdays }: Props) {
             </div>
             <style jsx>{`
               article {
-                background: ${theme['bg-gradient']},
-                  ${theme[`bg-${id.substring(0, 3)}`]}, url('${image}') center;
+                background: ${backgrounds['bg-gradient']},
+                  ${backgrounds[`bg-${id.substring(0, 3)}`]},
+                  url('${image}') center;
                 background-size: cover;
               }
             `}</style>

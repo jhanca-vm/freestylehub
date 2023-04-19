@@ -1,0 +1,71 @@
+@use '../theme';
+@use '../mixins';
+
+.heading {
+  @include mixins.text-gradient;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 7.2rem auto 3.6rem;
+
+  @media (min-width: 768px) {
+    margin-top: 10rem;
+  }
+}
+
+.list {
+  display: grid;
+  font-size: 1.5rem;
+  font-weight: 500;
+  row-gap: 2.4rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  svg {
+    width: 2rem;
+  }
+
+  li {
+    border-block: 1px solid;
+    border-image: linear-gradient(
+        90deg,
+        transparent,
+        theme.$color-300,
+        transparent
+      )
+      12;
+    display: grid;
+    gap: 0.8rem;
+    grid-auto-flow: column;
+    justify-content: center;
+    padding: 1.4rem 0.8rem 1.6rem;
+
+    @media (min-width: 768px) and (max-width: 1023px), (max-width: 639px) {
+      grid-template-rows: repeat(2, 1fr);
+
+      & > svg:first-of-type {
+        display: none;
+      }
+    }
+
+    & > svg {
+      color: theme.$color-200;
+    }
+  }
+
+  span {
+    align-items: center;
+    column-gap: 0.4rem;
+    display: flex;
+    justify-content: center;
+
+    &:nth-of-type(2) {
+      font-weight: 600;
+
+      @media (min-width: 768px) and (max-width: 1023px), (max-width: 639px) {
+        grid-column: 1 / span 3;
+      }
+    }
+  }
+}
