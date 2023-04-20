@@ -8,7 +8,7 @@
   margin: 7.2rem auto 3.6rem;
 
   @media (min-width: 768px) {
-    margin-top: 10rem;
+    margin-top: 9.6rem;
   }
 }
 
@@ -20,6 +20,10 @@
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   svg {
@@ -41,7 +45,7 @@
     justify-content: center;
     padding: 1.4rem 0.8rem 1.6rem;
 
-    @media (min-width: 768px) and (max-width: 1023px), (max-width: 639px) {
+    @media (min-width: 768px), (max-width: 639px) {
       grid-template-rows: repeat(2, 1fr);
 
       & > svg:first-of-type {
@@ -63,7 +67,7 @@
     &:nth-of-type(2) {
       font-weight: 600;
 
-      @media (min-width: 768px) and (max-width: 1023px), (max-width: 639px) {
+      @media (min-width: 768px), (max-width: 639px) {
         grid-column: 1 / span 3;
       }
     }
