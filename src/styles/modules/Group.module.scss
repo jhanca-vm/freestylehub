@@ -1,0 +1,50 @@
+@use '../theme';
+
+.table {
+  border-spacing: 0;
+  font-size: 1.4rem;
+  margin-inline: auto;
+  max-width: 48rem;
+  width: 100%;
+
+  th,
+  td {
+    border-bottom: 1px solid theme.$color-400;
+    line-height: 1;
+    text-align: center;
+
+    &:first-of-type {
+      text-align: left;
+    }
+  }
+
+  th {
+    font-weight: 600;
+    padding-bottom: 1.2rem;
+
+    &:first-of-type {
+      font-weight: bold;
+      font-size: 1.8rem;
+      padding-bottom: 1.6rem;
+    }
+  }
+
+  tbody {
+    tr:nth-of-type(4) {
+      color: theme.$color-200;
+    }
+
+    tr:nth-last-of-type(1),
+    tr:nth-last-of-type(2) {
+      color: theme.$color-300;
+    }
+
+    td {
+      padding: 1.2rem 0.4rem;
+
+      &:first-of-type {
+        font-weight: 600;
+      }
+    }
+  }
+}

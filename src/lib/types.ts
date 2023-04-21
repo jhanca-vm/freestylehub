@@ -13,3 +13,10 @@ export interface Transfer {
   freestyler: string
   to: string
 }
+
+export interface Freestyler {
+  name: string
+  fms: string
+  group: string
+  results: Array<[number, number]>
+}
