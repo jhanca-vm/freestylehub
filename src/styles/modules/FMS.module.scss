@@ -1,6 +1,11 @@
 .groups {
   display: grid;
   gap: 6rem;
+  margin-block: 4.8rem;
+
+  @media (min-width: 768px) {
+    margin-block: 8rem;
+  }
 
   @media (min-width: 768px) {
     grid-template-columns: 1fr 1fr;

@@ -61,11 +61,6 @@
 
 .main {
   flex-grow: 1;
-  padding-block: 4.8rem;
-
-  @media (min-width: 768px) {
-    padding-block: 6.4rem;
-  }
 }
 
 .footer {

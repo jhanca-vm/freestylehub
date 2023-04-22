@@ -1,14 +1,18 @@
 @use '../theme';
 @use '../mixins';
 
-.heading {
-  @include mixins.text-gradient;
-  font-size: 2rem;
-  font-weight: 600;
-  margin: 7.2rem auto 3.6rem;
+.container {
+  margin-block: 8rem;
 
   @media (min-width: 768px) {
-    margin-top: 9.6rem;
+    margin-top: 12rem;
+  }
+
+  h2 {
+    @include mixins.text-gradient;
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0 auto 3.6rem;
   }
 }
 
@@ -60,9 +64,14 @@
 
   span {
     align-items: center;
-    column-gap: 0.4rem;
+    column-gap: 0.6rem;
     display: flex;
     justify-content: center;
+
+    &:first-of-type,
+    &:last-of-type {
+      color: var(--color, theme.$color-200);
+    }
 
     &:nth-of-type(2) {
       font-weight: 600;

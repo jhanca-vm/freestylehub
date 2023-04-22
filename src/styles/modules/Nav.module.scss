@@ -20,13 +20,10 @@
     font-size: 1.8rem;
     font-weight: 500;
     transition: color ease-out 200ms;
+    color: var(--color, theme.$color-200);
 
-    @media (min-width: 1024px) {
-      color: theme.$color-200;
-
-      &:hover {
-        color: theme.$color-100;
-      }
+    &:not([class]):hover {
+      color: theme.$color-100;
     }
   }
 }

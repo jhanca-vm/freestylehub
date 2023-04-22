@@ -43,3 +43,15 @@ dialog {
     background-color: rgba(0, 0, 0, 0.5);
   }
 }
+
+@each $name, $color in theme.$leagues {
+  .#{$name} {
+    --color: #{$color};
+  }
+
+  .fms-#{$name} {
+    background: linear-gradient(transparent, rgba(theme.$color-500, 0.92)),
+      linear-gradient(rgba($color, 0.88), rgba($color, 0.88)),
+      var(--image) center;
+  }
+}

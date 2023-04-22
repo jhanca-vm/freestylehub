@@ -7,6 +7,10 @@
   max-width: 48rem;
   width: 100%;
 
+  tr:first-of-type {
+    color: var(--color);
+  }
+
   th,
   td {
     border-bottom: 1px solid theme.$color-400;

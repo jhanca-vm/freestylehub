@@ -2,6 +2,16 @@
 @use '../mixins';
 
 .container {
+  margin-block: 4rem;
+
+  @media (min-width: 768px) {
+    margin-block: 6rem;
+  }
+
+  @media (min-width: 1024px) {
+    margin-block: 8rem;
+  }
+
   h2 {
     @include mixins.text-gradient;
     font-size: 1.6rem;
@@ -45,7 +55,6 @@
     border-radius: 1.6rem;
     box-shadow: theme.$shadow;
     display: flex;
-    font-size: 1.5rem;
     font-style: italic;
     font-weight: 600;
     justify-content: space-between;
@@ -59,6 +68,10 @@
         grid-column-end: span 2;
         padding: 2rem 2.8rem;
       }
+    }
+
+    @media (max-width: 1279px) {
+      font-size: 1.5rem;
     }
 
     div:last-of-type {

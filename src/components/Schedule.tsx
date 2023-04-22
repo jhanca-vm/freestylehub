@@ -1,6 +1,7 @@
 import formatDate from '@/lib/utils/formatDate'
-import variables from '@/styles/modules/variables.module.scss'
+import leagues from '@/lib/utils/leagues'
 import styles from '@/styles/modules/Schedule.module.scss'
+import type { CSSProperties } from 'react'
 import type { Matchday } from '@/lib/types'
 
 interface Props {
@@ -14,7 +15,11 @@ export default function Schedule({ matchdays }: Props) {
       <span />
       <div className={styles.matchdays}>
         {matchdays.map(({ id, league, number, city, date, image }) => (
-          <article key={id}>
+          <article
+            className={`fms-${leagues.get(league)}`}
+            style={{ '--image': `url('${image}')` } as CSSProperties}
+            key={id}
+          >
             <div>
               <p>FMS {league}</p>
               <p>Jornada {number}</p>
@@ -23,14 +28,6 @@ export default function Schedule({ matchdays }: Props) {
               <p>{city}</p>
               <p>{formatDate(date)}</p>
             </div>
-            <style jsx>{`
-              article {
-                background: ${variables['bg-gradient']},
-                  ${variables[`bg-${id.substring(0, 3)}`]},
-                  url('${image}') center;
-                background-size: cover;
-              }
-            `}</style>
           </article>
         ))}
       </div>

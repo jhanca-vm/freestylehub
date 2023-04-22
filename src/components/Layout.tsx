@@ -1,7 +1,7 @@
-import { useRef } from 'react'
 import { Work_Sans } from 'next/font/google'
 import Link from 'next/link'
 import Image from 'next/image'
+import useModal from '@/lib/hooks/useModal'
 import Nav from './Nav'
 import Modal from './Modal'
 import styles from '@/styles/modules/Layout.module.scss'
@@ -10,7 +10,7 @@ import type { PropsWithChildren } from 'react'
 const workSans = Work_Sans({ style: ['normal', 'italic'], subsets: ['latin'] })
 
 export default function Layout({ children }: PropsWithChildren) {
-  const modalRef = useRef<HTMLDialogElement>(null)
+  const { modalRef } = useModal()
 
   return (
     <div className={`${workSans.className} ${styles.container}`}>
