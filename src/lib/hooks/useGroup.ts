@@ -1,24 +1,28 @@
 import type { Freestyler } from '@/lib/types'
 
-type Result = [number, number]
+type Battle = [string, number]
 
 export default function useGroup() {
-  const getPoints = ([points]: Result) => points
-  const getPTB = ([, ptb]: Result) => ptb
-  const getBattles = ({ results }: Freestyler) => results.length
+  const getPoints = ([, points]: Battle) => points
+  const getBattles = ({ battles }: Freestyler) => battles.length
 
   const reducer = (accumulator: number, currentValue: number) => {
     return accumulator + currentValue
   }
 
   const compareResults = (a: Freestyler, b: Freestyler) => {
-    const aPoints = a.results.map(getPoints).reduce(reducer, 0)
-    const aPTB = a.results.map(getPTB).reduce(reducer, 0)
-    const bPoints = b.results.map(getPoints).reduce(reducer, 0)
-    const bPTB = b.results.map(getPTB).reduce(reducer, 0)
+    let aPoints = a.battles.map(getPoints).reduce(reducer, 0)
+    let bPoints = b.battles.map(getPoints).reduce(reducer, 0)
 
-    return aPoints === bPoints ? bPTB - aPTB : bPoints - aPoints
+    if (aPoints === bPoints) {
+      aPoints = a.battles.find(([name]) => name === b.name)?.[1] ?? 0
+      bPoints = b.battles.find(([name]) => name === a.name)?.[1] ?? 0
+
+      return aPoints - bPoints
+    }
+
+    return bPoints - aPoints
   }
 
-  return { getPoints, getPTB, getBattles, reducer, compareResults }
+  return { getPoints, getBattles, reducer, compareResults }
 }

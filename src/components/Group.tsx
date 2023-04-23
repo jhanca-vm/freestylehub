@@ -10,7 +10,7 @@ interface Props {
 }
 
 export default function Group({ name, fms, freestylers }: Props) {
-  const { compareResults, getBattles, getPTB, getPoints, reducer } = useGroup()
+  const { compareResults, getBattles, getPoints, reducer } = useGroup()
   const sortedFreestylers = [...freestylers].sort(compareResults)
 
   return (
@@ -19,20 +19,18 @@ export default function Group({ name, fms, freestylers }: Props) {
         <tr>
           <th>Grupo {name}</th>
           <th>Batallas</th>
-          <th>PTB</th>
           <th>Puntos</th>
         </tr>
       </thead>
       <tbody>
-        {sortedFreestylers.map(({ name, results }) => (
+        {sortedFreestylers.map(({ name, battles }) => (
           <tr key={name}>
             <td>{name}</td>
             <td>
-              {results.length || '-'}/
+              {battles.length || '-'}/
               {Math.max(...freestylers.map(getBattles)) || '-'}
             </td>
-            <td>{results.map(getPTB).reduce(reducer, 0) || '-'}</td>
-            <td>{results.map(getPoints).reduce(reducer, 0)}</td>
+            <td>{battles.map(getPoints).reduce(reducer, 0)}</td>
           </tr>
         ))}
       </tbody>

@@ -18,5 +18,5 @@ export interface Freestyler {
   name: string
   fms: string
   group: string
-  results: Array<[number, number]>
+  battles: Array<[string, number]>
 }

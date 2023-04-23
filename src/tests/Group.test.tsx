@@ -4,40 +4,40 @@ import Group from '@/components/Group'
 
 class Freestyler {
   name: string
-  results: Array<[number, number]>
+  battles: Array<[string, number]>
   fms = ''
   group = ''
 
-  constructor(name: string, ...results: Array<[number, number]>) {
+  constructor(name: string, ...battles: Array<[string, number]>) {
     this.name = name
-    this.results = results
+    this.battles = battles
   }
 }
 
 describe('Group Component', () => {
   const freestylers = [
-    new Freestyler('Mnak', [0, 248], [0, 255]),
-    new Freestyler('Gazir', [3, 256], [3, 273], [3, 264]),
-    new Freestyler('Tirpa', [0, 244]),
-    new Freestyler('Mecha', [3, 250], [0, 252])
+    new Freestyler('Mnak', ['Gazir', 1], ['Mecha', 1]),
+    new Freestyler('Gazir', ['Mnak', 2], ['Tirpa', 3], ['Mecha', 3]),
+    new Freestyler('Tirpa', ['Gazir', 0]),
+    new Freestyler('Mecha', ['Mank', 2], ['Gazir', 0])
   ]
 
-  it('displays the sum of points and PTB, sorted in descending order', () => {
-    render(<Group name="A" freestylers={freestylers} />)
+  it('displays the sum of points, sorted in descending order', () => {
+    render(<Group name="A" fms="España" freestylers={freestylers} />)
 
     const rows = screen.getAllByRole('row')
     const fisrtRow = within(rows[1])
     const secondRow = within(rows[2])
 
-    expect(fisrtRow.getByRole('cell', { name: '9' })).toBeDefined()
-    expect(fisrtRow.getByRole('cell', { name: '793' })).toBeDefined()
+    expect(fisrtRow.getByRole('cell', { name: '8' })).toBeDefined()
+    expect(secondRow.getByRole('cell', { name: '2' })).toBeDefined()
 
-    expect(secondRow.getByRole('cell', { name: '3' })).toBeDefined()
-    expect(secondRow.getByRole('cell', { name: '502' })).toBeDefined()
+    // The ties are decided by direct confrontation
+    expect(secondRow.getByRole('cell', { name: 'Mecha' })).toBeDefined()
   })
 
   it('calculates total battles based on freestylers with the most battles', () => {
-    render(<Group name="A" freestylers={freestylers} />)
+    render(<Group name="A" fms="España" freestylers={freestylers} />)
 
     const rows = screen.getAllByRole('row')
     const mostBattles = within(rows[1])
