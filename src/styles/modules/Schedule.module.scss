@@ -14,13 +14,9 @@
 
   h2 {
     @include mixins.text-gradient;
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     font-weight: 500;
     margin: 0 0 1.2rem 0.8rem;
-
-    @media (min-width: 640px) {
-      font-size: 1.8rem;
-    }
   }
 
   & > span {
@@ -77,5 +73,13 @@
     div:last-of-type {
       text-align: right;
     }
+  }
+}
+
+@each $name, $color in theme.$leagues {
+  .fms-#{$name} {
+    background: linear-gradient(rgba($color, 0.88), rgba($color, 0.88)),
+      linear-gradient(transparent, theme.$color-500), var(--image) center 60%;
+    background-size: cover;
   }
 }

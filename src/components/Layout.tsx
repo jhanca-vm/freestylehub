@@ -1,4 +1,4 @@
-import { Work_Sans } from 'next/font/google'
+import { Plus_Jakarta_Sans } from 'next/font/google'
 import Link from 'next/link'
 import Image from 'next/image'
 import useModal from '@/lib/hooks/useModal'
@@ -7,13 +7,16 @@ import Modal from './Modal'
 import styles from '@/styles/modules/Layout.module.scss'
 import type { PropsWithChildren } from 'react'
 
-const workSans = Work_Sans({ style: ['normal', 'italic'], subsets: ['latin'] })
+const plusJakartaSans = Plus_Jakarta_Sans({
+  style: ['normal', 'italic'],
+  subsets: ['latin']
+})
 
 export default function Layout({ children }: PropsWithChildren) {
   const { modalRef } = useModal()
 
   return (
-    <div className={`${workSans.className} ${styles.container}`}>
+    <div className={`${plusJakartaSans.className} ${styles.container}`}>
       <header className={styles.header}>
         <Link href="/" className={styles.logo}>
           <Image src="/logo.webp" alt="Logo" width={28} height={28} />

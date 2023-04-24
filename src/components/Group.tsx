@@ -1,20 +1,21 @@
 import useGroup from '@/lib/hooks/useGroup'
-import leagues from '@/lib/utils/leagues'
 import styles from '@/styles/modules/Group.module.scss'
 import type { Freestyler } from '@/lib/types'
 
 interface Props {
   name: 'A' | 'B'
-  fms: string
   freestylers: Freestyler[]
 }
 
-export default function Group({ name, fms, freestylers }: Props) {
+export default function Group({ name, freestylers }: Props) {
   const { compareResults, getBattles, getPoints, reducer } = useGroup()
-  const sortedFreestylers = [...freestylers].sort(compareResults)
+
+  const sortedFreestylers = freestylers
+    .filter(({ group }) => group === name)
+    .sort(compareResults)
 
   return (
-    <table className={`${styles.table} ${leagues.get(fms)}`}>
+    <table className={styles.table}>
       <thead>
         <tr>
           <th>Grupo {name}</th>

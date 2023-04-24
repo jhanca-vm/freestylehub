@@ -1,48 +1,43 @@
 import Head from 'next/head'
-import supabase from '@/lib/supabase'
-import leagues from '@/lib/utils/leagues'
+import { LEAGUES } from '@/lib/utils/constant'
+import { getFreestylers } from '@/lib/utils/supabase'
 import Layout from '@/components/Layout'
-import Group from '@/components/Group'
-import styles from '@/styles/modules/FMS.module.scss'
+import Groups from '@/components/Groups'
 import type { GetServerSideProps, NextPage } from 'next'
 import type { Freestyler } from '@/lib/types'
+import { SWRConfig } from 'swr'
 
 interface Props {
   name: string
-  freestylers: Freestyler[]
+  fallback: Record<string, Freestyler[]>
 }
 
-const getServerSideProps: GetServerSideProps = async ({ params }) => {
+const getServerSideProps: GetServerSideProps<Props> = async ({ params }) => {
   const id = params?.id as string
-  const paths = Array.from(leagues.values())
+  const paths = LEAGUES.map(([, path]) => path)
 
   if (!paths.includes(id)) return { notFound: true }
 
-  const names = new Map(Array.from(leagues, ([name, path]) => [path, name]))
-  const fms = names.get(id)
-  const { data } = await supabase.from('freestyler').select('*').eq('fms', fms)
+  const [fms] = LEAGUES.find(([, path]) => path === id)!
+  const freestylers = (await getFreestylers(fms)) as Freestyler[]
 
-  return { props: { name: fms, freestylers: data } }
+  return {
+    props: {
+      name: fms,
+      fallback: { [`/api/freestyler/${id}`]: freestylers }
+    }
+  }
 }
 
-const FMS: NextPage<Props> = ({ name, freestylers }) => (
+const FMS: NextPage<Props> = ({ name, fallback }) => (
   <>
     <Head>
       <title>{`FMS ${name}`}</title>
     </Head>
     <Layout>
-      <section className={styles.groups}>
-        <Group
-          name="A"
-          fms={name}
-          freestylers={freestylers.filter(({ group }) => group === 'A')}
-        />
-        <Group
-          name="B"
-          fms={name}
-          freestylers={freestylers.filter(({ group }) => group === 'B')}
-        />
-      </section>
+      <SWRConfig value={{ fallback }}>
+        <Groups fms={name} />
+      </SWRConfig>
     </Layout>
   </>
 )

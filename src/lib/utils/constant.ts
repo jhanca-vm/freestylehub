@@ -1,4 +1,4 @@
-const leagues = new Map<string, string>([
+export const LEAGUES: Array<[string, string]> = [
   ['España', 'spain'],
   ['Caribe', 'caribbean'],
   ['Perú', 'peru'],
@@ -6,6 +6,4 @@ const leagues = new Map<string, string>([
   ['México', 'mexico'],
   ['Chile', 'chile'],
   ['Argentina', 'argentina']
-])
-
-export default leagues
+]

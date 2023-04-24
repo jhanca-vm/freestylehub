@@ -16,6 +16,9 @@ dependencies:
   sharp:
     specifier: ^0.32.0
     version: 0.32.0
+  swr:
+    specifier: ^2.1.4
+    version: 2.1.4(react@18.2.0)
 
 devDependencies:
   '@testing-library/react':
@@ -3391,6 +3394,15 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
+  /swr@2.1.4(react@18.2.0):
+    resolution: {integrity: sha512-NG+eu3s3YT7aCnL0BRzsYIh8U0HhzA4II1bNMTUtO5D+N+4+YJpcfLiagFdrt0IbTGCbOiVyzAIMvqOCsk9cQA==}
+    peerDependencies:
+      react: ^16.11.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+      use-sync-external-store: 1.2.0(react@18.2.0)
+    dev: false
+
   /symbol-tree@3.2.4:
     resolution: {integrity: sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==}
     dev: true
@@ -3599,6 +3611,14 @@ packages:
       querystringify: 2.2.0
       requires-port: 1.0.0
     dev: true
+
+  /use-sync-external-store@1.2.0(react@18.2.0):
+    resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /utf-8-validate@5.0.10:
     resolution: {integrity: sha512-Z6czzLq4u8fPOyx7TU6X3dvUZVvoJmxSQ+IcrlmagKhilxlhZgxPK6C5Jqbkw1IDUmFTM+cz9QDnnLTwDz/2gQ==}

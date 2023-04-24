@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import supabase from '@/lib/supabase'
+import { getMatchdays, getTransfers } from '@/lib/utils/supabase'
 import Layout from '@/components/Layout'
 import Schedule from '@/components/Schedule'
 import Transfers from '@/components/Transfers'
@@ -11,10 +11,10 @@ interface Props {
   transfers: Transfer[]
 }
 
-const getServerSideProps: GetServerSideProps = async () => {
-  const [{ data: matchdays }, { data: transfers }] = await Promise.all([
-    supabase.from('matchday').select('*').order('date').limit(3),
-    supabase.from('transfer').select('*')
+const getServerSideProps: GetServerSideProps<Props> = async () => {
+  const [matchdays, transfers] = await Promise.all([
+    getMatchdays(),
+    getTransfers()
   ])
 
   return { props: { matchdays, transfers } }

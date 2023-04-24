@@ -1,6 +1,6 @@
 {
   "name": "freestylehub",
-  "version": "0.8.5",
+  "version": "0.9.0",
   "private": true,
   "license": "Apache-2.0",
   "scripts": {
@@ -15,7 +15,8 @@
     "next": "13.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "sharp": "^0.32.0"
+    "sharp": "^0.32.0",
+    "swr": "^2.1.4"
   },
   "devDependencies": {
     "@testing-library/react": "^14.0.0",

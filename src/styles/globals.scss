@@ -48,11 +48,4 @@ dialog {
   .#{$name} {
     --color: #{$color};
   }
-
-  .fms-#{$name} {
-    background: linear-gradient(transparent, theme.$color-500),
-      linear-gradient(rgba($color, 0.88), rgba($color, 0.88)),
-      var(--image) center 60%;
-    background-size: cover;
-  }
 }

@@ -1,4 +1,4 @@
-import leagues from '@/lib/utils/leagues'
+import useLeagues from '@/lib/hooks/useLeagues'
 import IconShieldFilled from './IconShieldFilled'
 import IconShieldOff from './IconShieldOff'
 import IconChevronsRight from './IconChevronsRight'
@@ -10,6 +10,8 @@ interface Props {
 }
 
 export default function Transfers({ data }: Props) {
+  const leagues = useLeagues()
+
   return (
     <section className={styles.container}>
       <h2>Traspasos y Fichajes</h2>
