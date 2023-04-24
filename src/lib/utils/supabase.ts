@@ -1,5 +1,6 @@
+import 'dayjs/locale/es'
+import dayjs from 'dayjs'
 import { createClient } from '@supabase/supabase-js'
-import formatDate from './formatDate'
 import type { Freestyler, Matchday, Transfer } from '../types'
 
 const { SUPABASE_URL, SUPABASE_KEY } = process.env
@@ -21,7 +22,7 @@ export async function getMatchdays() {
 
   return matchdays.map(({ date, ...rest }) => ({
     ...rest,
-    date: formatDate(date)
+    date: dayjs(date).locale('es').format('ddd D MMMM')
   }))
 }
 
