@@ -27,7 +27,7 @@
     font-weight: 600;
     padding-bottom: 1.6rem;
 
-    &:first-of-type {    
+    &:first-of-type {
       font-weight: bold;
       font-size: 1.8rem;
       letter-spacing: 0.04rem;
@@ -36,12 +36,12 @@
   }
 
   tbody {
-    tr:nth-of-type(4) {
+    tr:nth-of-type(4),
+    tr:nth-of-type(5) {
       color: theme.$color-200;
     }
 
-    tr:nth-last-of-type(1),
-    tr:nth-last-of-type(2) {
+    tr:last-of-type {
       color: theme.$color-300;
     }
 

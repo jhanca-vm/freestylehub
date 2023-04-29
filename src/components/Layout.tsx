@@ -22,7 +22,7 @@ export default function Layout({ children }: PropsWithChildren) {
           <Image src="/logo.webp" alt="Logo" width={28} height={28} />
         </Link>
         <Nav />
-        <button onClick={() => modalRef.current?.showModal()}>
+        <button aria-label="Menú" onClick={() => modalRef.current?.showModal()}>
           <svg viewBox="0 0 24 24" stroke="currentColor" strokeLinecap="round">
             <path d="M4 8h16M4 16h16" />
           </svg>
