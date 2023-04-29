@@ -1,7 +1,7 @@
 import useLeagues from '@/lib/hooks/useLeagues'
 import styles from '@/styles/modules/Schedule.module.scss'
 import type { CSSProperties } from 'react'
-import type { Matchday } from '@/lib/types'
+import type { Matchday } from '@/services/matchday'
 
 interface Props {
   matchdays: Matchday[]
@@ -15,14 +15,14 @@ export default function Schedule({ matchdays }: Props) {
       <h2>Próximas jornadas</h2>
       <span />
       <div className={styles.matchdays}>
-        {matchdays.map(({ id, league, number, city, date, image }) => (
+        {matchdays.map(({ id, fms, number, city, date, image }) => (
           <article
-            className={styles[`fms-${leagues.get(league)}`]}
+            className={styles[`fms-${leagues.get(fms)}`]}
             style={{ '--image': `url('${image}')` } as CSSProperties}
             key={id}
           >
             <div>
-              <p>FMS {league}</p>
+              <p>FMS {fms}</p>
               <p>Jornada {number}</p>
             </div>
             <div>

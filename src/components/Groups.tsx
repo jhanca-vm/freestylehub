@@ -1,8 +1,8 @@
 import useLeagues from '@/lib/hooks/useLeagues'
 import Group from './Group'
 import styles from '@/styles/modules/Groups.module.scss'
-import type { Freestyler } from '@/lib/types'
 import useFetcher from '@/lib/hooks/useFetcher'
+import type { Freestyler } from '@/services/freestyler'
 
 interface Props {
   fms: string

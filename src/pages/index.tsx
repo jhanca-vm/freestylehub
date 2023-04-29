@@ -1,10 +1,10 @@
 import Head from 'next/head'
-import { getMatchdays, getTransfers } from '@/lib/utils/supabase'
+import { getMatchdays, type Matchday } from '@/services/matchday'
+import { getTransfers, type Transfer } from '@/services/transfer'
 import Layout from '@/components/Layout'
 import Schedule from '@/components/Schedule'
 import Transfers from '@/components/Transfers'
 import type { GetServerSideProps, NextPage } from 'next'
-import type { Matchday, Transfer } from '@/lib/types'
 
 interface Props {
   matchdays: Matchday[]

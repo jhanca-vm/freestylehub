@@ -3,7 +3,7 @@ import IconShieldFilled from './IconShieldFilled'
 import IconShieldOff from './IconShieldOff'
 import IconChevronsRight from './IconChevronsRight'
 import styles from '@/styles/modules/Transfers.module.scss'
-import type { Transfer } from '@/lib/types'
+import type { Transfer } from '@/services/transfer'
 
 interface Props {
   data: Transfer[]

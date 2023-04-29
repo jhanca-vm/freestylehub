@@ -1,4 +1,4 @@
-import { LEAGUES } from '../utils/constant'
+import { LEAGUES } from '../constant'
 
 export default function useLeagues() {
   const leagues = new Map(LEAGUES)

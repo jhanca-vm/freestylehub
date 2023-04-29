@@ -1,6 +1,6 @@
 import useGroup from '@/lib/hooks/useGroup'
 import styles from '@/styles/modules/Group.module.scss'
-import type { Freestyler } from '@/lib/types'
+import type { Freestyler } from '@/services/freestyler'
 
 interface Props {
   name: 'A' | 'B'
