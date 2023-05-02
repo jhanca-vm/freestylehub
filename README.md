@@ -7,7 +7,8 @@ Before running the development server, please follow the steps below:
 
 - Create a Supabase project
 - Set up the following environment variables in your `.env.local` file:
-  - `SUPABASE_URL`
+  - `NEXT_PUBLIC_SUPABASE_URL`
+  - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
   - `SUPABASE_KEY`
 
 Once you have created your Supabase project and set up the environment

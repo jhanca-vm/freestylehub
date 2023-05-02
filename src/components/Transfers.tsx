@@ -1,7 +1,7 @@
 import useLeagues from '@/lib/hooks/useLeagues'
-import IconShieldFilled from './IconShieldFilled'
-import IconShieldOff from './IconShieldOff'
-import IconChevronsRight from './IconChevronsRight'
+import IconShieldFilled from './icons/IconShieldFilled'
+import IconShieldOff from './icons/IconShieldOff'
+import IconChevronsRight from './icons/IconChevronsRight'
 import styles from '@/styles/modules/Transfers.module.scss'
 import type { Transfer } from '@/services/transfer'
 
