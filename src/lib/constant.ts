@@ -1,4 +1,11 @@
-export const BASE_URL = 'https://freestylehub.vercel.app'
+import { Plus_Jakarta_Sans } from 'next/font/google'
+
+export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
+
+export const FONT = Plus_Jakarta_Sans({
+  style: ['normal', 'italic'],
+  subsets: ['latin']
+})
 
 export const LEAGUES: Array<[string, string]> = [
   ['España', 'spain'],

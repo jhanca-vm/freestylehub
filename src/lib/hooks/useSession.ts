@@ -8,14 +8,16 @@ export default function useSession(
   const [session, setSession] = useState<Session | null>(initialSession)
 
   useEffect(() => {
-    const {
-      data: { subscription }
-    } = supabaseClient.auth.onAuthStateChange((_event, session) => {
-      setSession(session)
-    })
+    if (!initialSession) {
+      const {
+        data: { subscription }
+      } = supabaseClient.auth.onAuthStateChange((_event, session) => {
+        setSession(session)
+      })
 
-    return () => subscription.unsubscribe()
-  }, [supabaseClient.auth])
+      return () => subscription.unsubscribe()
+    }
+  }, [initialSession, supabaseClient.auth])
 
   return session
 }

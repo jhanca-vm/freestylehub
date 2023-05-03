@@ -1,0 +1,30 @@
+.container {
+  display: grid;
+  width: 100%;
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1.6rem;
+    text-align: center;
+  }
+
+  section {
+    margin-block: 4rem;
+
+    @media (min-width: 1024px) {
+      & div {
+        grid-template-columns: 37.2rem;
+      }
+    }
+  }
+}
+
+.form {
+  display: grid;
+  justify-content: center;
+  row-gap: 0.8rem;
+}

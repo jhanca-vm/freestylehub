@@ -5,9 +5,11 @@ import {
   type Session
 } from '@supabase/auth-helpers-nextjs'
 import useSession from '@/lib/hooks/useSession'
-import LoginForm from '@/components/LoginForm'
+import MatchdayForm from '@/components/forms/MatchdayForm'
+import LoginForm from '@/components/forms/LoginForm'
 import styles from '@/styles/modules/Admin.module.scss'
 import type { GetServerSideProps, NextPage } from 'next'
+import { FONT } from '@/lib/constant'
 
 interface Props {
   initialSession: Session | null
@@ -29,9 +31,11 @@ const Admin: NextPage<Props> = ({ initialSession }) => {
       <Head>
         <title>Admin | FreestyleHub</title>
       </Head>
-      <main className={styles.container}>
+      <main className={`${FONT.className} ${styles.container}`}>
         {session ? (
-          <></>
+          <>
+            <MatchdayForm />
+          </>
         ) : (
           <section className={styles.form}>
             <LoginForm supabaseClient={supabaseClient} />

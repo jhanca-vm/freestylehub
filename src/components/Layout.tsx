@@ -1,22 +1,17 @@
-import { Plus_Jakarta_Sans } from 'next/font/google'
 import Link from 'next/link'
 import Image from 'next/image'
+import { FONT } from '@/lib/constant'
 import useModal from '@/lib/hooks/useModal'
 import Nav from './Nav'
 import Modal from './Modal'
 import styles from '@/styles/modules/Layout.module.scss'
 import type { PropsWithChildren } from 'react'
 
-const plusJakartaSans = Plus_Jakarta_Sans({
-  style: ['normal', 'italic'],
-  subsets: ['latin']
-})
-
 export default function Layout({ children }: PropsWithChildren) {
   const { modalRef } = useModal()
 
   return (
-    <div className={`${plusJakartaSans.className} ${styles.container}`}>
+    <div className={`${FONT.className} ${styles.container}`}>
       <header className={styles.header}>
         <Link href="/" className={styles.logo}>
           <Image src="/logo.webp" alt="Logo" width={28} height={28} />

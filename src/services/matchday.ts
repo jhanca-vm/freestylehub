@@ -19,3 +19,7 @@ export async function getMatchdays() {
 
   return formatted ?? []
 }
+
+export async function addMatchday(matchday: [Matchday]) {
+  await supabase.from('matchday').insert(matchday)
+}

@@ -7,6 +7,7 @@ Before running the development server, please follow the steps below:
 
 - Create a Supabase project
 - Set up the following environment variables in your `.env.local` file:
+  - `BASE_URL="http://localhost:3000"`
   - `NEXT_PUBLIC_SUPABASE_URL`
   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
   - `SUPABASE_KEY`
