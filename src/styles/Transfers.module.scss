@@ -1,0 +1,73 @@
+@use 'mixins';
+
+.container {
+  margin-block: 6.4rem;
+
+  @include mixins.medium-screen {
+    margin-block: 9.2rem;
+  }
+
+  h2 {
+    @include mixins.text-gradient;
+    font-size: 2rem;
+    margin: 0 auto 3.2rem;
+  }
+}
+
+.list {
+  display: grid;
+  text-align: center;
+  row-gap: 2.4rem;
+
+  @include mixins.small-screen {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 2.8rem;
+  }
+
+  @include mixins.large-screen {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  svg {
+    width: 2rem;
+  }
+
+  li {
+    border-block: 1px solid;
+    border-image: linear-gradient(
+        90deg,
+        transparent,
+        rgb(var(--color-300)),
+        transparent
+      )
+      12;
+    font-weight: 500;
+    letter-spacing: 0.02rem;
+    line-height: 1.5;
+    padding-block: 0.8rem 1.6rem;
+  }
+
+  p {
+    margin-bottom: 0.8rem;
+  }
+
+  div,
+  span {
+    display: flex;
+    column-gap: 0.4rem;
+  }
+
+  div {
+    align-items: center;
+    font-size: 1.4rem;
+    justify-content: center;
+
+    & > svg {
+      color: rgb(var(--color-300));
+    }
+
+    span {
+      color: var(--color, rgb(var(--color-300)));
+    }
+  }
+}

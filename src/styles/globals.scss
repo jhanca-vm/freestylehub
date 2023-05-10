@@ -1,4 +1,12 @@
-@use 'theme';
+@use 'mixins';
+
+:root {
+  --color-100: 193, 189, 179;
+  --color-200: 127, 121, 121;
+  --color-300: 95, 91, 107;
+  --color-400: 61, 59, 60;
+  --color-500: 14, 14, 14;
+}
 
 * {
   box-sizing: border-box;
@@ -8,17 +16,39 @@
 }
 
 html {
+  color-scheme: dark;
   font-size: 62.5%;
 }
 
 body {
-  background-color: theme.$color-500;
-  color: theme.$color-100;
+  background-color: rgb(var(--color-500));
+  color: rgb(var(--color-100));
+  display: flex;
+  flex-direction: column;
   font-size: 1.6rem;
+  justify-content: space-between;
+  min-height: 100vh;
 }
 
-ul {
-  list-style: none;
+header,
+main,
+footer {
+  margin-inline: auto;
+  max-width: 128rem;
+  padding-inline: 2rem;
+  width: 100%;
+
+  @include mixins.small-screen {
+    padding-inline: 3.2rem;
+  }
+
+  @include mixins.medium-screen {
+    padding-inline: 4rem;
+  }
+}
+
+main {
+  flex-grow: 1;
 }
 
 a {
@@ -27,26 +57,20 @@ a {
 
 img {
   height: auto;
+  max-width: 100%;
 }
 
-dialog,
 button,
-input {
+dialog {
   background: none;
   border: none;
 }
 
-dialog {
-  margin: auto;
-
-  &::backdrop {
-    backdrop-filter: blur(2px);
-    background-color: rgba(0, 0, 0, 0.5);
-  }
+dialog::backdrop {
+  backdrop-filter: blur(2px);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
-@each $name, $color in theme.$leagues {
-  .#{$name} {
-    --color: #{$color};
-  }
+ul {
+  list-style: none;
 }

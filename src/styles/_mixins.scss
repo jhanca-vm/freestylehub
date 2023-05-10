@@ -1,14 +1,33 @@
-@use 'theme';
-
 @mixin size($value) {
   height: $value;
   width: $value;
 }
 
 @mixin text-gradient {
-  background: linear-gradient(45deg, theme.$color-100, theme.$color-300);
+  background: linear-gradient(
+    to right,
+    rgb(var(--color-100)),
+    rgb(var(--color-300))
+  );
   background-clip: text;
   color: transparent;
-  text-shadow: 0 4px 4px rgb(0 0 0 /0.2);
   width: fit-content;
+}
+
+@mixin small-screen {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin medium-screen {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin large-screen {
+  @media (min-width: 1024px) {
+    @content;
+  }
 }

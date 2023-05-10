@@ -1,0 +1,83 @@
+@use 'mixins';
+
+.container {
+  font-size: 1.4rem;
+  margin-block: 4.4rem;
+
+  @include mixins.medium-screen {
+    font-size: 1.5rem;
+    margin-block: 6.4rem;
+  }
+
+  h2 {
+    @include mixins.text-gradient;
+    font-size: inherit;
+    font-weight: 600;
+
+    @include mixins.medium-screen {
+      font-size: 1.6rem;
+    }
+  }
+
+  span {
+    background-color: rgb(var(--color-300));
+    display: block;
+    height: 1px;
+    margin-block: 1.2rem 2.8rem;
+
+    @include mixins.medium-screen {
+      margin-bottom: 3.2rem;
+    }
+  }
+}
+
+.matchdays {
+  display: grid;
+  gap: 3.2rem;
+
+  @include mixins.small-screen {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mixins.medium-screen {
+    gap: 4rem;
+  }
+
+  @include mixins.large-screen {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  article {
+    --margin: 0.8rem;
+    align-items: flex-end;
+    aspect-ratio: 2 / 1;
+    background: linear-gradient(
+        to top,
+        rgba(var(--color-500), 0.88) 20%,
+        transparent
+      ),
+      var(--image) center;
+    background-size: cover;
+    border: 0.2rem solid var(--color);
+    border-radius: 0.8rem;
+    box-shadow: 1.2rem 1.2rem 2.4rem -0.6rem rgb(var(--color-500)),
+      var(--margin) var(--margin) var(--color);
+    display: flex;
+    font-style: italic;
+    font-weight: bold;
+    justify-content: space-between;
+    line-height: 1.5;
+    margin: 0 var(--margin) var(--margin) 0;
+    padding: 1.2rem 1.6rem;
+
+    &:last-of-type {
+      @media (min-width: 640px) and (max-width: 1023px) {
+        display: none;
+      }
+    }
+
+    div:last-of-type {
+      text-align: right;
+    }
+  }
+}

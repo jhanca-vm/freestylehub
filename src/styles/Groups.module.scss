@@ -1,0 +1,106 @@
+@use 'mixins';
+
+.container {
+  display: grid;
+  gap: 6rem;
+  margin-block: 4.8rem;
+
+  @include mixins.medium-screen {
+    grid-template-columns: repeat(2, 1fr);
+    margin-block: 8rem;
+  }
+}
+
+.group {
+  border-spacing: 0;
+  font-size: 1.4rem;
+  margin-inline: auto;
+  max-width: 48rem;
+  width: 100%;
+
+  tr:first-of-type {
+    color: var(--color);
+  }
+
+  th,
+  td {
+    border-bottom: 1px solid rgb(var(--color-400));
+    line-height: 1;
+    text-align: center;
+
+    &:first-of-type {
+      text-align: left;
+    }
+  }
+
+  th {
+    font-weight: 600;
+    padding-bottom: 1.6rem;
+
+    &:first-of-type {
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 0.04rem;
+      padding-bottom: 2rem;
+    }
+  }
+
+  tbody {
+    tr:nth-of-type(4),
+    tr:nth-of-type(5) {
+      color: rgb(var(--color-200));
+    }
+
+    tr:last-of-type {
+      color: rgb(var(--color-300));
+    }
+
+    td {
+      font-weight: 500;
+      padding: 1.6rem 0.4rem;
+
+      &:first-of-type {
+        font-weight: 600;
+      }
+
+      &:nth-of-type(2) {
+        letter-spacing: 0.4rem;
+      }
+    }
+  }
+}
+
+.legend {
+  display: grid;
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.02rem;
+  row-gap: 0.4rem;
+
+  li {
+    align-items: center;
+    column-gap: 0.8rem;
+    display: flex;
+
+    &:first-of-type span {
+      background-color: var(--color);
+    }
+
+    &:nth-of-type(2) span {
+      background-color: rgb(var(--color-100));
+    }
+
+    &:nth-of-type(3) span {
+      background-color: rgb(var(--color-200));
+    }
+
+    &:last-of-type span {
+      background-color: rgb(var(--color-300));
+    }
+  }
+
+  span {
+    @include mixins.size(1.2rem);
+    border-radius: 0.4rem;
+  }
+}

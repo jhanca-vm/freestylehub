@@ -1,33 +1,39 @@
-import useLeagues from '@/lib/hooks/useLeagues'
-import styles from '@/styles/modules/Schedule.module.scss'
+import 'dayjs/locale/es'
+import dayjs from 'dayjs'
+import style from '@/styles/Schedule.module.scss'
 import type { CSSProperties } from 'react'
-import type { Matchday } from '@/services/matchday'
+import type { Database } from '@/lib/supabase/database'
+import { COLOR } from '@/lib/constant'
 
 interface Props {
-  matchdays: Matchday[]
+  matchdays: Array<Database['public']['Tables']['matchday']['Row']>
 }
 
 export default function Schedule({ matchdays }: Props) {
-  const leagues = useLeagues()
-
   return (
-    <section className={styles.container}>
+    <section className={style.container}>
       <h2>Próximas jornadas</h2>
       <span />
-      <div className={styles.matchdays}>
-        {matchdays.map(({ id, fms, number, city, date, image }) => (
+      <div className={style.matchdays}>
+        {matchdays.map(({ id, image, fms, number, city, date }) => (
           <article
-            className={styles[`fms-${leagues.get(fms)}`]}
-            style={{ '--image': `url('${image}')` } as CSSProperties}
             key={id}
+            style={
+              {
+                '--color': COLOR[fms],
+                '--image': `url('${image}')`
+              } as CSSProperties
+            }
           >
             <div>
-              <p>FMS {fms}</p>
-              <p>Jornada {number}</p>
+              <p>{`FMS ${fms}`}</p>
+              <p>{`Jornada ${number}`}</p>
             </div>
             <div>
               <p>{city}</p>
-              <p>{date}</p>
+              <time dateTime={date}>
+                {dayjs(date).locale('es').format('ddd D MMMM')}
+              </time>
             </div>
           </article>
         ))}
