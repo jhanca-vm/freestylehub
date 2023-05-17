@@ -1,30 +1,31 @@
 {
   "name": "freestylehub",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "private": true,
   "license": "Apache-2.0",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "supabase:types": "supabase gen types typescript > src/lib/supabase/database.d.ts"
   },
   "dependencies": {
-    "dayjs": "^1.11.7",
-    "next": "13.4.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "@fontsource/plus-jakarta-sans": "^4.5.11",
+    "@supabase/supabase-js": "^2.21.0",
+    "@unocss/reset": "^0.51.12",
+    "dayjs": "^1.11.7"
   },
   "devDependencies": {
-    "@supabase/supabase-js": "^2.21.0",
-    "@types/node": "20.1.0",
-    "@types/react": "18.2.6",
-    "@types/react-dom": "18.2.4",
-    "eslint": "8.40.0",
-    "eslint-config-next": "13.4.1",
-    "sass": "^1.62.1",
-    "supabase": "^1.57.2",
-    "typescript": "5.0.4"
-  }
+    "@sveltejs/adapter-vercel": "^2.4.3",
+    "@sveltejs/kit": "^1.5.0",
+    "supabase": "^1.58.1",
+    "svelte": "^3.54.0",
+    "svelte-check": "^3.0.1",
+    "tslib": "^2.4.1",
+    "typescript": "^5.0.0",
+    "unocss": "^0.51.12",
+    "vite": "^4.3.0"
+  },
+  "type": "module"
 }

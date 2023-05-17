@@ -1,13 +1,13 @@
 # FreestyleHub
 
 This is a web application that uses [Supabase](https://supabase.io) as a
-backend for storing data related to all FMS leagues.
+backend for storing data related to all Urban Roosters' FMS.
 
 Before running the development server, please follow the steps below:
 
 - Create a Supabase project
-- Set up the following environment variables in your `.env.local` file:
-  - `NEXT_PUBLIC_SUPABASE_URL`
+- Set up the following environment variables in your `.env` file:
+  - `SUPABASE_URL`
   - `SUPABASE_KEY`
 
 Once you have created your Supabase project and set up the environment
