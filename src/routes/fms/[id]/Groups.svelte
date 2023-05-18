@@ -49,11 +49,11 @@
       <tbody>
         {#each sortedFreestylers as { name, battles }, index}
           <tr
-            class="text-center children:(pt-3 pb-3.75)
+            class="text-center font-medium children:(pt-3 pb-3.75)
               first:text-{$page.params.id} last:text-brand-300
               [&:nth-child(4),_&:nth-child(5)]:text-brand-200"
           >
-            <td class="pl-1 text-left font-medium">{name}</td>
+            <td class="pl-1 text-left">{name}</td>
             <td>{battles.length} / 7</td>
             <td>{battles.map(getPoints).reduce(reducer, 0)}</td>
           </tr>

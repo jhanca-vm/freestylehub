@@ -16,7 +16,7 @@
   </h2>
   <ul class="grid gap-y-7 sm:grid-cols-2 lg:grid-cols-3">
     {#each [...data].reverse() as { freestyler, from, to }}
-      <li class="border-y border-transparent pt-2 pb-4">
+      <li class="border-gradient pt-2 pb-4">
         <p class="text-center font-semibold mb-2">{freestyler}</p>
         <div
           class="flex items-center justify-center text-sm text-brand-300
@@ -40,15 +40,3 @@
     {/each}
   </ul>
 </section>
-
-<style>
-  li {
-    border-image: linear-gradient(
-        90deg,
-        transparent,
-        theme('colors.brand.300'),
-        transparent
-      )
-      12;
-  }
-</style>

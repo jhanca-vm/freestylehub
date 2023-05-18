@@ -37,4 +37,15 @@
     -webkit-tap-highlight-color: transparent;
     font-family: 'Plus Jakarta SansVariable', sans-serif;
   }
+
+  :global(.border-gradient) {
+    border-block: 1px solid;
+    border-image: linear-gradient(
+        90deg,
+        transparent,
+        theme('colors.brand.300'),
+        transparent
+      )
+      12;
+  }
 </style>

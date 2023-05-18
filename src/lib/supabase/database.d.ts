@@ -55,6 +55,46 @@ export interface Database {
           number?: number
         }
       }
+      postseason: {
+        Row: {
+          final: Json
+          fms: string
+          playoffs: Json
+          semifinals: Json
+        }
+        Insert: {
+          final?: Json
+          fms: string
+          playoffs?: Json
+          semifinals?: Json
+        }
+        Update: {
+          final?: Json
+          fms?: string
+          playoffs?: Json
+          semifinals?: Json
+        }
+      }
+      relegation: {
+        Row: {
+          fms: string
+          playoffs: Json
+          removals: Json
+          survivals: Json
+        }
+        Insert: {
+          fms: string
+          playoffs?: Json
+          removals?: Json
+          survivals?: Json
+        }
+        Update: {
+          fms?: string
+          playoffs?: Json
+          removals?: Json
+          survivals?: Json
+        }
+      }
       transfer: {
         Row: {
           freestyler: string

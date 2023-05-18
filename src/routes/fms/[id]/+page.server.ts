@@ -9,7 +9,18 @@ export const load: PageServerLoad = async ({ params }) => {
   if (!map.has(params.id)) throw error(404, 'Not found')
 
   const name = map.get(params.id)!
-  const { data } = await supabase.from('freestyler').select('*').eq('fms', name)
 
-  return { name, freestylers: data! }
+  const [{ data: freestylers }, { data: postseason }, { data: relegation }] =
+    await Promise.all([
+      supabase.from('freestyler').select('*').eq('fms', name),
+      supabase.from('postseason').select('*').eq('fms', name).single(),
+      supabase.from('relegation').select('*').eq('fms', name).single()
+    ])
+
+  return {
+    name,
+    freestylers: freestylers!,
+    postseason: postseason!,
+    relegation: relegation!
+  }
 }
