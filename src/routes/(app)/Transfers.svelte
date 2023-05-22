@@ -15,25 +15,27 @@
     Traspasos y Fichajes
   </h2>
   <ul class="grid gap-y-7 sm:grid-cols-2 lg:grid-cols-3">
-    {#each [...data].reverse() as { freestyler, from, to }}
+    {#each data as { freestyler, fromFMS, toFMS }}
       <li class="border-gradient pt-2 pb-4">
-        <p class="text-center font-semibold mb-2">{freestyler}</p>
+        <p class="text-center font-semibold mb-2">{freestyler.name}</p>
         <div
           class="flex items-center justify-center text-sm text-brand-300
             font-medium [&,_&_span]:gap-x-1 [&_svg]:w-5"
         >
-          <span class={from ? `flex text-${getFMSColor(from)}` : 'flex'}>
-            {#if from}
+          <span
+            class={fromFMS ? `flex text-${getFMSColor(fromFMS.name)}` : 'flex'}
+          >
+            {#if fromFMS}
               <IconShieldFilled />
-              FMS {from}
+              FMS {fromFMS.name}
             {:else}
               <IconShieldOff />
             {/if}
           </span>
           <IconChevronsRight />
-          <span class="flex text-{getFMSColor(to)}">
+          <span class="flex text-{getFMSColor(toFMS.name)}">
             <IconShieldFilled />
-            FMS {to}
+            FMS {toFMS.name}
           </span>
         </div>
       </li>

@@ -11,8 +11,8 @@
   <h2 class="text-gradient tracking-wide">Próximas jornadas</h2>
   <span class="block h-px bg-brand-300 mt-3 mb-7 md:mb-9" />
   <div class="grid gap-7.5 sm:grid-cols-2 md:gap-10 lg:grid-cols-3">
-    {#each matchdays as { image, fms, number, city, date }}
-      {@const color = getFMSColor(fms)}
+    {#each matchdays as { fms, image, number, city, date }}
+      {@const color = getFMSColor(fms.name)}
       <article
         class="aspect-2 flex items-end justify-between rounded-2 mr-8px mb-8px
           py-3 px-4 italic border-2 border-{color} shadow-{color}
@@ -20,7 +20,7 @@
         style:--image={`url(${image})`}
       >
         <div>
-          <p>FMS {fms}</p>
+          <p>FMS {fms.name}</p>
           <p>Jornada {number}</p>
         </div>
         <div class="text-right">

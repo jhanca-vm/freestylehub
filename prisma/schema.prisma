@@ -1,0 +1,76 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("MONGODB_URI")
+}
+
+model Admin {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  username String @unique
+  hash     String
+}
+
+model FMS {
+  id          String       @id @default(auto()) @map("_id") @db.ObjectId
+  name        String       @unique
+  freestylers Freestyler[]
+  signings    Transfer[]   @relation("Signings")
+  departures  Transfer[]   @relation("Departures")
+  matchday    Matchday[]
+}
+
+model Freestyler {
+  id            String          @id @default(auto()) @map("_id") @db.ObjectId
+  name          String
+  fms           FMS             @relation(fields: [fmsId], references: [id])
+  fmsId         String          @db.ObjectId
+  group         Group
+  transfer      Transfer?
+  battleResults BattleResults[]
+}
+
+model Transfer {
+  id           String     @id @default(auto()) @map("_id") @db.ObjectId
+  fromFMS      FMS?       @relation("Departures", fields: [fromFMSId], references: [id])
+  fromFMSId    String?    @db.ObjectId
+  freestyler   Freestyler @relation(fields: [freestylerId], references: [id])
+  freestylerId String     @unique @db.ObjectId
+  toFMS        FMS        @relation("Signings", fields: [toFMSId], references: [id])
+  toFMSId      String     @db.ObjectId
+}
+
+model Matchday {
+  id      String   @id @default(auto()) @map("_id") @db.ObjectId
+  number  Int
+  fms     FMS      @relation(fields: [fmsId], references: [id])
+  fmsId   String   @db.ObjectId
+  date    DateTime
+  city    String
+  image   String
+  battles Battle[]
+}
+
+model Battle {
+  id         String          @id @default(auto()) @map("_id") @db.ObjectId
+  matchday   Matchday        @relation(fields: [matchdayId], references: [id])
+  matchdayId String          @db.ObjectId
+  results    BattleResults[]
+}
+
+model BattleResults {
+  id           String     @id @default(auto()) @map("_id") @db.ObjectId
+  battle       Battle     @relation(fields: [battleId], references: [id])
+  battleId     String     @db.ObjectId
+  freestyler   Freestyler @relation(fields: [freestylerId], references: [id])
+  freestylerId String     @db.ObjectId
+  points       Int?
+  ptb          Float?
+}
+
+enum Group {
+  A
+  B
+}

@@ -1,42 +1,53 @@
 # FreestyleHub
 
-This is a web application that uses [Supabase](https://supabase.io) as a
-backend for storing data related to all Urban Roosters' FMS.
+FreestyleHub is a website dedicated to showcasing information about Urban
+Roosters' Freestyle Master Series (FMS). On FreestyleHub, users can explore and
+access relevant data about the various FMS events taking place in different
+countries.
 
-Before running the development server, please follow the steps below:
+The platform provides up-to-date information about the events, participants,
+results, rankings, and more. FreestyleHub aims to provide FMS fans with a
+centralized hub for detailed and updated information on freestyle competitions,
+promoting the dissemination and enjoyment of this urban art form.
 
-- Create a Supabase project
-- Set up the following environment variables in your `.env` file:
-  - `SUPABASE_URL`
-  - `SUPABASE_KEY`
+## Developing
 
-Once you have created your Supabase project and set up the environment
-variables, you will need to add the following
-[tables](src/lib/supabase/database.d.ts) to your Supabase database.
+Before running the development server, set up the following environment
+variables in your `.env` file:
 
-To run the development server, enter the following command in your terminal:
+- `MONGODB_URI`
+- `JWT_SECRET`
+
+Once you've installed dependencies with `pnpm i`, start a development server:
 
 ```bash
 pnpm dev
+
+# or start the server and open the app in a new browser tab
+pnpm dev --open
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the
-result.
+## Building
 
-## Generating Supabase Types
+To create a production version:
 
-To generate types directly from Supabase, follow these steps:
-
-1. Log in to Supabase and obtain your access token.
-2. Run the command `pnpm supabase login` in your terminal and provide your
-   access token when prompted.
-3. Obtain your project ID from the "Settings" page of your Supabase project.
-4. To generate TypeScript types for your Supabase database, run the following
-   command in your terminal:
-
-```
-pnpm supabase:types --project-id <your_project_id>
+```bash
+pnpm build
 ```
 
-This command will use `supabase` to automatically generate TypeScript types for
-your Supabase database and save them to `src/lib/supabase/database.d.ts`.
+You can preview the production build with `pnpm preview`.
+
+## Built With
+
+- [SvelteKit](https://kit.svelte.dev) - A framework for building web
+  applications with Svelte.
+- [MongoDB](https://www.mongodb.com) - A NoSQL database for storing data.
+- [Prisma](https://www.prisma.io) - A modern database toolkit for TypeScript and
+  Node.js.
+- [UnoCSS](https://unocss.dev) - A utility-first CSS framework for rapid
+  development.
+
+## License
+
+This project is licensed under the Apache License 2.0 - see the
+[LICENSE](LICENSE) file for details.

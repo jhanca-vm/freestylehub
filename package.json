@@ -1,27 +1,31 @@
 {
   "name": "freestylehub",
-  "version": "2.5.0",
+  "version": "2.7.0",
   "private": true,
   "license": "Apache-2.0",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
     "preview": "vite preview",
-    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-    "supabase:types": "supabase gen types typescript > src/lib/supabase/database.d.ts"
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
   },
   "dependencies": {
     "@fontsource/plus-jakarta-sans": "^4.5.11",
-    "@supabase/supabase-js": "^2.21.0",
+    "@prisma/client": "4.14.1",
     "@unocss/reset": "^0.51.12",
-    "dayjs": "^1.11.7"
+    "bcrypt": "^5.1.0",
+    "dayjs": "^1.11.7",
+    "jsonwebtoken": "^9.0.0"
   },
   "devDependencies": {
     "@sveltejs/adapter-vercel": "^2.4.3",
     "@sveltejs/kit": "^1.5.0",
-    "supabase": "^1.58.1",
+    "@types/bcrypt": "^5.0.0",
+    "@types/jsonwebtoken": "^9.0.2",
+    "prisma": "^4.14.1",
     "svelte": "^3.54.0",
     "svelte-check": "^3.0.1",
+    "ts-node": "^10.9.1",
     "tslib": "^2.4.1",
     "typescript": "^5.0.0",
     "unocss": "^0.51.12",

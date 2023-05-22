@@ -14,7 +14,7 @@
 <header class="px-5 relative sm:px-8 md:px-10">
   <nav class="flex items-center justify-between max-w-6xl mx-auto">
     <a
-      class="w-12 h-12 grid place-items-center bg-brand-400/35 rounded-b-full
+      class="w-12 h-12 grid place-items-center bg-brand-400/30 rounded-b-full
         shadow-md md:(w-16 h-16)"
       href="/"
       on:click={hideMenu}
