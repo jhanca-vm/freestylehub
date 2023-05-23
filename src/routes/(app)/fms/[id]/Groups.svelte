@@ -8,18 +8,18 @@
 </script>
 
 <section
-  class="my-11 grid gap-y-15 tracking-wide md:(my-20 grid-cols-2 gap-x-20)
-    xl:gap-x-28"
+  class="mt-12 mb-16 grid gap-y-16 tracking-wide md:(mt-20 mb-24 grid-cols-2 
+    gap-x-20) xl:gap-x-28"
 >
   {#each data as freestylers, index}
     <table class="w-full text-sm [&_tr]:(border-b border-brand-400)">
       <thead>
-        <tr class="text-{$page.params.id} children:(pb-3.25 font-bold)">
-          <th class="text-left text-lg">
+        <tr class="text-{$page.params.id} children:pb-4">
+          <th class="text-left text-lg font-bold leading-none">
             Grupo {index === 0 ? 'A' : 'B'}
           </th>
-          <th>Batallas</th>
-          <th>Puntos</th>
+          <th class="font-semibold">Batallas</th>
+          <th class="font-semibold">Puntos</th>
         </tr>
       </thead>
       <tbody>

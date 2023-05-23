@@ -10,12 +10,19 @@ export const load: PageServerLoad = async ({ params }) => {
 
   const name = map.get(params.id)!
 
-  const { freestylers } = await prisma.fMS
+  const { freestylers, matchdays } = await prisma.fMS
     .findUnique({
       where: { name },
-      select: { freestylers: { include: { battleResults: true } } }
+      select: {
+        freestylers: { include: { battleResults: true } },
+        matchdays: { where: { battles: { none: {} } } }
+      }
     })
     .then(data => data!)
 
-  return { name, freestylers }
+  return {
+    name,
+    freestylers,
+    matchdays: matchdays.map(matchday => ({ ...matchday, fms: { name } }))
+  }
 }

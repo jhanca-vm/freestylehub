@@ -28,12 +28,12 @@
       />
     </a>
     <ul
-      class="absolute top-full inset-x-0 text-center pb-6 bg-gradient-to-b
-        from-brand-500 from-96% lg:(static flex gap-x-12 pb-0)"
+      class="absolute top-full inset-x-0 text-center pb-6 z-2
+        bg-gradient-to-b from-brand-500 from-96% lg:(static flex gap-x-12 pb-0)"
       class:hidden={menuIsHidden}
     >
       {#each FMS as [id, name]}
-        <li class="font-semibold tracking-wide my-6 lg:m-0">
+        <li class="font-medium tracking-wide my-6 lg:m-0">
           <a
             class={$page.params.id === id
               ? `text-${id}`

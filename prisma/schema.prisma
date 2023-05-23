@@ -19,7 +19,7 @@ model FMS {
   freestylers Freestyler[]
   signings    Transfer[]   @relation("Signings")
   departures  Transfer[]   @relation("Departures")
-  matchday    Matchday[]
+  matchdays    Matchday[]
 }
 
 model Freestyler {

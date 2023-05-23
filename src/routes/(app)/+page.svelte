@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Schedule from './Schedule.svelte'
+  import Schedule from '$lib/Schedule.svelte'
   import Transfers from './Transfers.svelte'
   import type { PageServerData } from './$types'
 

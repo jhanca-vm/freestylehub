@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Schedule from '$lib/Schedule.svelte'
   import Groups from './Groups.svelte'
 
   import type { PageServerData } from './$types'
@@ -21,3 +22,4 @@
 </svelte:head>
 
 <Groups data={[groupA, groupB]} />
+<Schedule matchdays={data.matchdays} />

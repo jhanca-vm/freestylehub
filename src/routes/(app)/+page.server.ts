@@ -1,9 +1,5 @@
-import dayjs from 'dayjs'
-import utc from 'dayjs/plugin/utc'
 import prisma from '$lib/prisma'
 import type { PageServerLoad } from './$types'
-
-dayjs.extend(utc)
 
 export const load: PageServerLoad = async () => {
   const name = { select: { name: true } }
@@ -12,7 +8,7 @@ export const load: PageServerLoad = async () => {
     prisma.matchday.findMany({
       where: { battles: { none: {} } },
       orderBy: { date: 'asc' },
-      take: 3,
+      take: 12,
       include: { fms: name }
     }),
     prisma.transfer.findMany({
@@ -20,11 +16,5 @@ export const load: PageServerLoad = async () => {
     })
   ])
 
-  return {
-    matchdays: matchdays.map(({ date, ...rest }) => ({
-      ...rest,
-      date: dayjs.utc(date).format('YYYY-MM-DD')
-    })),
-    transfers: [...transfers].reverse()
-  }
+  return { matchdays, transfers: [...transfers].reverse() }
 }

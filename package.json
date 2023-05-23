@@ -1,17 +1,18 @@
 {
   "name": "freestylehub",
-  "version": "2.7.0",
+  "version": "2.8.0",
   "private": true,
   "license": "Apache-2.0",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build",
+    "build": "prisma generate && vite build",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
   },
   "dependencies": {
     "@fontsource/plus-jakarta-sans": "^4.5.11",
     "@prisma/client": "4.14.1",
+    "@splidejs/svelte-splide": "^0.2.9",
     "@unocss/reset": "^0.51.12",
     "bcrypt": "^5.1.0",
     "dayjs": "^1.11.7",
