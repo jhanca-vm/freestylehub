@@ -12,6 +12,7 @@ export default defineConfig({
         200: '#7f7979',
         300: '#5f5b6b',
         400: '#3d3b3c',
+        450: '#141414',
         500: '#0e0e0e'
       },
       spain: '#ff0340',

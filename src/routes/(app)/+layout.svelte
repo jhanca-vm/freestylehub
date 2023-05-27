@@ -1,5 +1,6 @@
 <script>
   import Header from './Header.svelte'
+  import Footer from './Footer.svelte'
 </script>
 
 <Header />
@@ -8,21 +9,7 @@
     <slot />
   </div>
 </main>
-<footer class="p-5">
-  <p class="text-center text-sm text-brand-200 font-medium">
-    © 2023
-    <a
-      class="text-brand-100 underline-brand-200 underline-offset-1.5
-        hover:underline"
-      href="https://jhanca.site"
-      target="_blank"
-      rel="noreferrer"
-    >
-      Jhan Viloria.
-    </a>
-    Todos los derechos reservados.
-  </p>
-</footer>
+<Footer />
 
 <style>
   :global(.border-gradient) {
