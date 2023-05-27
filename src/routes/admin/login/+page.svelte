@@ -1,7 +1,11 @@
 <script lang="ts">
+  import { toast } from 'svoast'
   import type { ActionData } from './$types'
 
   export let form: ActionData
+
+  if (form?.missing) toast.warning('Ingrese usuario y contraseña')
+  if (form?.incorrect) toast.error('Acceso denegado')
 </script>
 
 <svelte:head>
@@ -14,8 +18,8 @@
       [&_input:focus]:(outline outline-2 outline-current)"
     method="POST"
   >
-    <label class:text-red={form?.missing}>
-      Usuario{#if form?.missing}*{/if}
+    <label>
+      Usuario
       <input type="text" name="username" />
     </label>
     <label>
@@ -28,10 +32,5 @@
     >
       Iniciar sesión
     </button>
-    {#if form?.incorrect}
-      <p class="text-red text-sm text-right font-medium italic mt-4">
-        - Acceso denegado -
-      </p>
-    {/if}
   </form>
 </main>

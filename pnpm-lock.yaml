@@ -45,6 +45,9 @@ devDependencies:
   svelte-check:
     specifier: ^3.0.1
     version: 3.3.2(postcss@8.4.23)(svelte@3.59.1)
+  svoast:
+    specifier: ^2.2.0
+    version: 2.2.0(svelte@3.59.1)
   ts-node:
     specifier: ^10.9.1
     version: 10.9.1(@types/node@20.1.4)(typescript@5.0.4)
@@ -1822,6 +1825,14 @@ packages:
   /svelte@3.59.1:
     resolution: {integrity: sha512-pKj8fEBmqf6mq3/NfrB9SLtcJcUvjYSWyePlfCqN9gujLB25RitWK8PvFzlwim6hD/We35KbPlRteuA6rnPGcQ==}
     engines: {node: '>= 8'}
+    dev: true
+
+  /svoast@2.2.0(svelte@3.59.1):
+    resolution: {integrity: sha512-CJtrGDu4Tak1Dkte3oWtKAdWK9jZzvubcS7TTGArk6DJnN61GPBoNYZgtB8ngE/t5CMrdOGmL0uPD6OBi/fs8A==}
+    peerDependencies:
+      svelte: ^3.54.0
+    dependencies:
+      svelte: 3.59.1
     dev: true
 
   /tar@6.1.14:
