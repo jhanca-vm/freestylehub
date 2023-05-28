@@ -15,9 +15,16 @@ export const load: PageServerLoad = async ({ cookies }) => {
     if (error) throw redirect(307, '/admin/login')
   })
 
+  const date = dayjs.utc().startOf('d')
+  
   const [matchdays, freestylers] = await Promise.all([
     prisma.matchday.findMany({
-      where: { date: { equals: dayjs.utc().startOf('d').toISOString() } },
+      where: {
+        date: {
+          gte: date.subtract(1, 'day').toISOString(),
+          lte: date.toISOString()
+        }
+      },
       select: { id: true, city: true, fmsId: true }
     }),
     prisma.freestyler.findMany()
