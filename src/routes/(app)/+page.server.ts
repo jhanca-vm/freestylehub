@@ -8,7 +8,7 @@ export const load: PageServerLoad = async () => {
     prisma.matchday.findMany({
       where: { battles: { none: {} } },
       orderBy: { date: 'asc' },
-      take: 12,
+      take: 6,
       include: { fms: name }
     }),
     prisma.transfer.findMany({

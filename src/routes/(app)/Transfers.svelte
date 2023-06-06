@@ -8,7 +8,7 @@
   export let data: PageServerData['transfers']
 </script>
 
-<section class="mt-16 mb-20 md:(mt-20 mb-28)">
+<section class="my-20 md:mt-24">
   <h2
     class="text-gradient text-xl font-bold tracking-wide mx-auto mb-8 sm:mb-9"
   >

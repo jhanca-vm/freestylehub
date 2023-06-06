@@ -1,5 +1,5 @@
 <footer
-  class="bg-brand-500 text-xs py-4 px-5 sm:px-8 md:(text-sm px-10)
+  class="bg-brand-500 text-xs py-4 px-5 mt-10 sm:px-8 md:(text-sm px-10)
     [&_a:hover]:(underline underline-brand-200 underline-offset-1.5)"
 >
   <div
