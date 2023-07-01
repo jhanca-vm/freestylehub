@@ -1,0 +1,91 @@
+:root {
+  --color-100: 255, 255, 214;
+  --color-200: 176, 165, 97;
+  --color-300: 38, 30, 23;
+  --color-400: 5, 5, 5;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  color-scheme: dark;
+  font-size: 62.5%;
+}
+
+body {
+  background: radial-gradient(
+      circle at 20vw 280px,
+      rgba(var(--color-300), 0.4),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 80vw 400px,
+      rgba(var(--color-300), 0.28),
+      transparent 28%
+    );
+  background-color: rgb(var(--color-400));
+  background-repeat: no-repeat;
+  color: rgb(var(--color-100));
+  display: flex;
+  flex-direction: column;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+main {
+  flex-grow: 1;
+  margin-inline: auto;
+  max-width: 120rem;
+  padding-inline: 2.4rem;
+  width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+.spain {
+  --fms-color: 255, 3, 66;
+}
+
+.caribbean {
+  --fms-color: 0, 255, 162;
+}
+
+.colombia {
+  --fms-color: 255, 255, 0;
+}
+
+.peru {
+  --fms-color: 255, 0, 0;
+}
+
+.mexico {
+  --fms-color: 0, 245, 0;
+}
+
+.argentina {
+  --fms-color: 0, 247, 255;
+}
+
+.chile {
+  --fms-color: 0, 128, 255;
+}
+
+@media (min-width: 640px) {
+  main {
+    padding-inline: 4rem;
+  }
+}

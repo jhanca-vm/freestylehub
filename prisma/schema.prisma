@@ -3,71 +3,50 @@ generator client {
 }
 
 datasource db {
-  provider = "mongodb"
-  url      = env("MONGODB_URI")
-}
-
-model Admin {
-  id       String @id @default(auto()) @map("_id") @db.ObjectId
-  username String @unique
-  hash     String
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model FMS {
-  id          String       @id @default(auto()) @map("_id") @db.ObjectId
-  name        String       @unique
+  name        String       @id
   freestylers Freestyler[]
-  signings    Transfer[]   @relation("Signings")
-  departures  Transfer[]   @relation("Departures")
-  matchdays    Matchday[]
+  matchdays   Matchday[]
 }
 
 model Freestyler {
-  id            String          @id @default(auto()) @map("_id") @db.ObjectId
-  name          String
-  fms           FMS             @relation(fields: [fmsId], references: [id])
-  fmsId         String          @db.ObjectId
+  name          String         @id
+  fms           FMS            @relation(fields: [fmsId], references: [name])
+  fmsId         String
   group         Group
-  transfer      Transfer?
-  battleResults BattleResults[]
-}
-
-model Transfer {
-  id           String     @id @default(auto()) @map("_id") @db.ObjectId
-  fromFMS      FMS?       @relation("Departures", fields: [fromFMSId], references: [id])
-  fromFMSId    String?    @db.ObjectId
-  freestyler   Freestyler @relation(fields: [freestylerId], references: [id])
-  freestylerId String     @unique @db.ObjectId
-  toFMS        FMS        @relation("Signings", fields: [toFMSId], references: [id])
-  toFMSId      String     @db.ObjectId
+  battleResults BattleResult[]
 }
 
 model Matchday {
-  id      String   @id @default(auto()) @map("_id") @db.ObjectId
+  id      Int      @id @default(autoincrement())
   number  Int
-  fms     FMS      @relation(fields: [fmsId], references: [id])
-  fmsId   String   @db.ObjectId
+  fms     FMS      @relation(fields: [fmsId], references: [name])
+  fmsId   String
   date    DateTime
   city    String
-  image   String
   battles Battle[]
 }
 
 model Battle {
-  id         String          @id @default(auto()) @map("_id") @db.ObjectId
-  matchday   Matchday        @relation(fields: [matchdayId], references: [id])
-  matchdayId String          @db.ObjectId
-  results    BattleResults[]
+  id         Int            @id @default(autoincrement())
+  matchday   Matchday       @relation(fields: [matchdayId], references: [id])
+  matchdayId Int
+  results    BattleResult[]
 }
 
-model BattleResults {
-  id           String     @id @default(auto()) @map("_id") @db.ObjectId
+model BattleResult {
+  id           Int        @id @default(autoincrement())
   battle       Battle     @relation(fields: [battleId], references: [id])
-  battleId     String     @db.ObjectId
-  freestyler   Freestyler @relation(fields: [freestylerId], references: [id])
-  freestylerId String     @db.ObjectId
-  points       Int?
-  ptb          Float?
+  battleId     Int
+  freestyler   Freestyler @relation(fields: [freestylerId], references: [name])
+  freestylerId String
+  points       Int
+  ptb          Float
 }
 
 enum Group {
