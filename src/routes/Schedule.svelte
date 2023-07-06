@@ -2,36 +2,64 @@
   import 'dayjs/locale/es'
   import dayjs from 'dayjs'
   import utc from 'dayjs/plugin/utc'
+  import { Carrusel, CarruselSlide } from 'carrusel'
   import { page } from '$app/stores'
+  import Pagination from './Pagination.svelte'
 
   /** @type {import('@prisma/client').Matchday[]} */
   const matchdays = $page.data.matchdays
+
+  /** @type {Carrusel} */
+  let carousel
+  /** @type {number} */
+  let pages
+  /** @type {number} */
+  let currentPage
 
   dayjs.extend(utc)
 </script>
 
 <section>
-  {#each matchdays as { fmsId, date, number, city }}
-    {@const utc = dayjs.utc(date)}
-    <article>
-      <h3>FMS {fmsId}</h3>
-      <time datetime={utc.format('YYYY-MM-DD')}>
-        {utc.locale('es').format('D MMMM')}
-      </time>
-      <p>{city} - Jornada {number}</p>
-    </article>
-  {/each}
+  <Carrusel
+    bind:this={carousel}
+    bind:pages
+    bind:currentPage
+    ariaLabel="Calendario"
+    pagination
+    draggable
+  >
+    {#each matchdays as { fmsId, date, number, city }}
+      {@const utc = dayjs.utc(date)}
+      <CarruselSlide>
+        <div>
+          <h3>FMS {fmsId}</h3>
+          <time datetime={utc.format('YYYY-MM-DD')}>
+            {utc.locale('es').format('D MMMM')}
+          </time>
+          <p>{city} - Jornada {number}</p>
+        </div>
+      </CarruselSlide>
+    {/each}
+    <svelte:fragment slot="nav">
+      {#if pages !== 1}
+        <Pagination {pages} {currentPage} goToPage={carousel?.goToPage} />
+      {/if}
+    </svelte:fragment>
+  </Carrusel>
 </section>
 
 <style>
   section {
+    --gap: 2.8rem;
     border-bottom: 1px solid rgb(var(--color-300));
-    display: grid;
-    gap: 2.8rem;
-    padding-block: 2.8rem 4rem;
+    padding-block: 2.8rem;
   }
 
-  article {
+  section :global(ul) {
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  div {
     background: linear-gradient(
       to right,
       transparent,
@@ -60,9 +88,19 @@
     opacity: 0.75;
   }
 
+  @media (min-width: 640px) {
+    section {
+      --per-view: 2;
+    }
+
+    section :global(ul) {
+      grid-template-rows: 1fr;
+    }
+  }
+
   @media (min-width: 768px) {
     section {
-      padding-block: 4rem 5.2rem;
+      padding-block: 4rem;
     }
 
     h3 {
@@ -80,17 +118,7 @@
 
   @media (min-width: 1024px) {
     section {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  @media (min-width: 640px) and (max-width: 1023px) {
-    section {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    article:first-child {
-      grid-column-end: span 2;
+      --per-view: 3;
     }
   }
 </style>

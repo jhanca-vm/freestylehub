@@ -56,6 +56,10 @@ img {
   max-width: 100%;
 }
 
+button {
+  border: none;
+}
+
 .spain {
   --fms-color: 255, 3, 66;
 }
