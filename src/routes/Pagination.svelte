@@ -8,7 +8,7 @@
 </script>
 
 <ol>
-  {#each Array.from({ length: pages }) as _, index}
+  {#each Array.from({ length: Math.min(pages, 3) }) as _, index}
     {@const page = index + 1}
     <li>
       <button
