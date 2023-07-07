@@ -9,8 +9,8 @@ dependencies:
     specifier: ^5.0.4
     version: 5.0.4
   carrusel:
-    specifier: ^1.2.2
-    version: 1.2.2(svelte@4.0.4)
+    specifier: ^1.2.3
+    version: 1.2.3(svelte@4.0.4)
   dayjs:
     specifier: ^1.11.9
     version: 1.11.9
@@ -901,8 +901,8 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /carrusel@1.2.2(svelte@4.0.4):
-    resolution: {integrity: sha512-YVKVfmf+++LWyX3wwOc2Stjad6lhTj1F92ci8s8UF/BogwkrYnlwkORGhqxEjzfOnhfyCkmvAE70jv53LELc9w==}
+  /carrusel@1.2.3(svelte@4.0.4):
+    resolution: {integrity: sha512-UQago2NSzd02/Zp86lcY6ItxDQ0nZ7Oa+76qy5I49FZ3omwVcappwf8+zPj25/IH/Sugko4at2f8z8FCZKVtTw==}
     peerDependencies:
       svelte: ^4.0.0
     dependencies:

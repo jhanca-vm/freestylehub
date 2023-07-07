@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@fontsource/lato": "^5.0.4",
-    "carrusel": "^1.2.2",
+    "carrusel": "^1.2.3",
     "dayjs": "^1.11.9"
   },
   "devDependencies": {
