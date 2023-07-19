@@ -5,10 +5,15 @@
   export let currentPage
   /** @type {(page: number) => void} */
   export let goToPage
+
+  $: length =
+    pages && matchMedia('(max-width: 639px)').matches
+      ? Math.ceil(pages / 2)
+      : pages
 </script>
 
 <ol>
-  {#each Array.from({ length: Math.min(pages, 3) }) as _, index}
+  {#each Array.from({ length }) as _, index}
     {@const page = index + 1}
     <li>
       <button

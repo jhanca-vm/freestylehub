@@ -1,6 +1,8 @@
 <script>
   import Nav from './Nav.svelte'
   import Schedule from './Schedule.svelte'
+
+  export let data
 </script>
 
 <svelte:head>
@@ -13,6 +15,8 @@
 </svelte:head>
 
 <main>
-  <Schedule />
+  {#if data.matchdays}
+    <Schedule />
+  {/if}
   <Nav />
 </main>
